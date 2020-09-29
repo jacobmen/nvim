@@ -1,3 +1,4 @@
 {
-    "clangd.semanticHighlighting": true
+    "clangd.semanticHighlighting": true,
+    "tsserver.npm": "/home/jacob/.nvm/versions/node/v12.18.3/bin/npm"
 }

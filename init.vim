@@ -46,9 +46,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Turn off auto-inserting comments
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
 call plug#begin('~/.vim/plugged')
 
 " Autocomplete
@@ -94,6 +91,9 @@ Plug 'unblevable/quick-scope'
 
 " HTML close tags
 Plug 'alvan/vim-closetag'
+
+" MIPS Highlighting TODO: Remove after 233
+Plug 'harenome/vim-mipssyntax'
 
 call plug#end()
 
@@ -240,20 +240,6 @@ nmap <F2> <Plug>VimspectorStepInto
 nmap <leader>gj ;diffget //3<CR>
 nmap <leader>gf ;diffget //2<CR>
 nmap <leader>gs ;G<CR>
-"---------------------------------------------------------------------------------
-"
-fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
-
-augroup highlight_yank
-    autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 50)
-augroup END
-
-autocmd BufWritePre * :call TrimWhitespace()
 
 "----------------------------- TERMINAL ----------------------------------------
 " Terminal
@@ -323,9 +309,30 @@ augroup parens
   autocmd BufEnter * :RainbowParentheses
 augroup END
 
+"-------------------------------  QOL  -------------------------------------------
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 50)
+augroup END
+
+autocmd BufWritePre * :call TrimWhitespace()
+
 " Automatically insert a new line when { used at end of line and move cursor
 " to it
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Fix indentation in file
 map <F7> gg=G<C-o>
+
+" Turn off auto-inserting comments
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Change syntax pack to mips for .s file TODO: Remove after 233
+autocmd FileType asm set filetype=mips
+
