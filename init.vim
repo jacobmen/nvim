@@ -92,14 +92,7 @@ Plug 'unblevable/quick-scope'
 " HTML close tags
 Plug 'alvan/vim-closetag'
 
-" MIPS Highlighting TODO: Remove after 233
-Plug 'harenome/vim-mipssyntax'
-
-" Verilog highlighting TODO: Remove after 233
-Plug 'vhda/verilog_systemverilog.vim'
-
 call plug#end()
-
 
 "-----------------------------  QUICK SCOPE  ----------------------------------------
 
@@ -178,9 +171,6 @@ nnoremap ; :
 nnoremap : ;
 "inoremap ; :
 "inoremap : ;
-
-vnoremap X "_d
-inoremap <C-c> <esc>
 
 "-----------------------------  COC  ----------------------------------------
 
@@ -336,8 +326,9 @@ map <F7> gg=G<C-o>
 " Turn off auto-inserting comments
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" Change syntax pack to mips for .s file TODO: Remove after 233
-autocmd FileType asm set filetype=mips
-
 " Replace highlighted
 vnoremap <leader>p "_dP
+vnoremap X "_d
+
+" Better escape key
+inoremap <C-c> <esc>
