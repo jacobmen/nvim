@@ -71,6 +71,9 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 
+" Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -111,8 +114,8 @@ let g:qs_max_chars=150
 
 let g:gruvbox_contrast_dark = 'hard'
 if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 let g:gruvbox_invert_selection='0'
 
@@ -124,17 +127,17 @@ set background=dark
 " Config fuzzy finder
 nnoremap <C-p> :FZF<CR>
 let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit'
-  \}
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \}
 
 " Ignore node modules
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 let $FZF_DEFAULT_OPTS = '--reverse'
 
 if executable('rg')
-    let g:rg_derive_root='true'
+  let g:rg_derive_root='true'
 endif
 
 let loaded_matchparen = 1
@@ -184,14 +187,14 @@ function! s:show_documentation()
   endif
 endfunction
 function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -212,6 +215,24 @@ nnoremap <leader>cr :CocRestart
 
 " C++ specific
 nnoremap <silent> <leader>gh :CocCommand clangd.switchSourceHeader<CR>
+
+"-----------------------------  Vim-Go  ----------------------------------------
+
+let g:go_code_completion_enabled = 0
+let g:go_doc_keywordprg_enabled = 0
+let g:go_def_mapping_enabled = 0
+let g:go_textobj_enabled = 0
+let g:go_gopls_enabled = 0
+let g:go_mod_fmt_autosave = 0
+let g:go_fmt_autosave = 0
+
+let g:go_fold_enable = []
+
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
 "-----------------------------  Vimspector  ----------------------------------------
 " F3 = vimspector#Stop()
@@ -245,31 +266,31 @@ inoremap <C-n> <C-\><C-n>:call ChooseTerm("term-slider", 1)<CR>
 "nnoremap <C-k> :call ChooseTerm("term-pane", 0)<CR>
 
 function! ChooseTerm(termname, slider)
-	let pane = bufwinnr(a:termname)
-	let buf = bufexists(a:termname)
-	if pane > 0
-		" pane is visible
-		if a:slider > 0
-			:exe pane . "wincmd c"
-		else
-			:exe "e #"
-		endif
-	elseif buf > 0
-		" buffer is not in pane
-		if a:slider
-			:exe "split"
-			:exe "resize 10"
-		endif
-		:exe "buffer " . a:termname
-	else
-		" buffer is not loaded, create
-		if a:slider
-			:exe "split"
-			:exe "resize 10"
-		endif
-		:terminal
-		:exe "f " a:termname
-	endif
+  let pane = bufwinnr(a:termname)
+  let buf = bufexists(a:termname)
+  if pane > 0
+    " pane is visible
+    if a:slider > 0
+      :exe pane . "wincmd c"
+    else
+      :exe "e #"
+    endif
+  elseif buf > 0
+    " buffer is not in pane
+    if a:slider
+      :exe "split"
+      :exe "resize 10"
+    endif
+    :exe "buffer " . a:termname
+  else
+    " buffer is not loaded, create
+    if a:slider
+      :exe "split"
+      :exe "resize 10"
+    endif
+    :terminal
+    :exe "f " a:termname
+  endif
 endfunction
 
 "----------------------------- Comments ----------------------------------------
@@ -285,9 +306,9 @@ let g:closetag_filetypes = 'html,xhtml,phtml'
 let g:closetag_emptyTags_caseSensitive = 0
 " Disables auto-close if not in a "valid" region (based on filetype)
 let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ }
+      \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+      \ 'javascript.jsx': 'jsxRegion',
+      \ }
 
 " Shortcut for closing tags, default is '>'
 let g:closetag_shortcut = '>'
@@ -304,14 +325,14 @@ augroup END
 
 "-------------------------------  QOL  -------------------------------------------
 fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
 endfun
 
 augroup highlight_yank
-    autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 50)
+  autocmd!
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 50)
 augroup END
 
 autocmd BufWritePre * :call TrimWhitespace()
