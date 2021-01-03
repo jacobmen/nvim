@@ -51,9 +51,6 @@ call plug#begin('~/.vim/plugged')
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Debugger
-Plug 'puremourning/vimspector'
-
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 " Man pages in vim (use Vman for vertical split)
@@ -233,20 +230,6 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
-
-"-----------------------------  Vimspector  ----------------------------------------
-" F3 = vimspector#Stop()
-" F4 = vimspector#Restart()
-" F5 = vimspector#Continue()
-" F6 = vimspector#Pause()
-" F8 = vimspector#AddFunctionBreakpoint( '<cexpr>' )
-" <leader>F9 = vimspector#ToggleBreakpoint()
-" F10 = vimspector#StepOver()
-" F12 = vimspector#StepOut()
-let g:vimspector_enable_mappings = 'HUMAN'
-
-" F2 = vimspector#StepInto() (F11 by default maximizes screen)
-nmap <F2> <Plug>VimspectorStepInto
 
 "-----------------------------  FuGITive  ----------------------------------------
 " IMPORTANT: The commands start with ; because FuGITive has problems due to
