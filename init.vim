@@ -200,6 +200,7 @@ inoremap <silent><expr> <C-space> coc#refresh()
 
 " GoTo code navigation.
 nmap <leader>gd <Plug>(coc-definition)
+nnoremap <silent> <leader>ga :CocAction<CR>
 nmap <leader>gy <Plug>(coc-type-definition)
 nmap <leader>gi <Plug>(coc-implementation)
 nmap <leader>gr <Plug>(coc-references)
