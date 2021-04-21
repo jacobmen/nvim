@@ -53,8 +53,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Git wrapper
 Plug 'tpope/vim-fugitive'
-" Man pages in vim (use Vman for vertical split)
-Plug 'vim-utils/vim-man'
 " Use <leader> u to toggle
 Plug 'mbbill/undotree'
 " Syntax highlight pack
