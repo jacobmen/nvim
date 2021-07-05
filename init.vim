@@ -164,12 +164,6 @@ nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kk
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-" IMPORTANT: FuGITive has problems due to change of ; and ;
-nnoremap ; :
-nnoremap : ;
-"inoremap ; :
-"inoremap : ;
-
 "-----------------------------  COC  ----------------------------------------
 
 " Use K to show documentation in preview window.
