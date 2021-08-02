@@ -329,3 +329,14 @@ vnoremap X "_d
 
 " Better escape key
 inoremap <C-c> <esc>
+
+" Yank to end of line
+nnoremap Y y$
+
+" Keep searches at center of screen when jumping
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Include relative jumps in jumplist for <C-o>
+nnoremap <expr> k (v:count > 1 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 1 ? "m'" . v:count : "") . 'j'
