@@ -16,7 +16,7 @@ require'lualine'.setup {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff',
-                  {'diagnostics', sources={'nvim_lsp'}}},
+                  {'diagnostics', sources={'nvim_diagnostic'}}},
     lualine_c = {{
       'filename',
       -- displays file status (readonly status, modified status)

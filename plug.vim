@@ -21,7 +21,7 @@ Plug 'lewis6991/gitsigns.nvim'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim51' }
+Plug 'tami5/lspsaga.nvim'
 
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
