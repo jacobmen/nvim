@@ -96,3 +96,7 @@ runtime ./colors.vim
 
 " Mappings
 runtime ./maps.vim
+
+" Plugin options
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]

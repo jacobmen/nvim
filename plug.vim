@@ -46,5 +46,8 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 
+" Vimwiki
+Plug 'vimwiki/vimwiki'
+
 call plug#end()
 
