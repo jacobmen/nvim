@@ -1,3 +1,3 @@
-nnoremap <leader>u :UndotreeToggle<CR>
-nnoremap <leader>v ::VenterToggle<CR>
+nnoremap <silent> <leader>u :UndotreeToggle<CR>
+nnoremap <silent> <leader>v :VenterToggle<CR>
 
