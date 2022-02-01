@@ -32,7 +32,8 @@ require'nvim-treesitter.configs'.setup {
     "python",
     "rust",
     "toml",
-    "typescript"
+    "typescript",
+    "haskell"
   },
 }
 
