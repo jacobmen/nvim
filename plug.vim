@@ -10,6 +10,9 @@ Plug 'windwp/nvim-autopairs'
 " Comments
 Plug 'tpope/vim-commentary'
 
+" Doc generation
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+
 " Undo Tree (<leader>u)
 Plug 'mbbill/undotree'
 
