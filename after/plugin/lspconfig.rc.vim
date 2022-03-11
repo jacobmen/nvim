@@ -36,6 +36,7 @@ local on_attach = function(client, bufnr)
 
   buf_set_keymap("n", '<leader>gn', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
   buf_set_keymap('n', '<leader>gN', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
+  buf_set_keymap("n", '<leader>cc', '<cmd>Lspsaga show_cursor_diagnostics<CR>', opts)
 end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(
