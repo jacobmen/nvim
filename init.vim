@@ -100,3 +100,6 @@ runtime ./maps.vim
 " Plugin options
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
+let g:do_filetype_lua = 1
+let g:did_load_filetypes = 0
