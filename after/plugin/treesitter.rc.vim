@@ -27,6 +27,7 @@ require'nvim-treesitter.configs'.setup {
     "cpp",
     "dockerfile",
     "html",
+    "javascript",
     "json",
     "lua",
     "python",
