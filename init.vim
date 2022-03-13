@@ -101,5 +101,9 @@ runtime ./maps.vim
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
+" Use Lua filetype identification. Remove when default
 let g:do_filetype_lua = 1
 let g:did_load_filetypes = 0
+
+" Autoformat buffer on write
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
