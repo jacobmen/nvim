@@ -4,6 +4,8 @@ endif
 
 call plug#begin()
 
+Plug 'rmagatti/auto-session'
+
 " Autopairs
 Plug 'windwp/nvim-autopairs'
 
