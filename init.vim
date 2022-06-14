@@ -77,9 +77,6 @@ vnoremap X "_d
 " Better escape key
 inoremap <C-c> <esc>
 
-" Yank to end of line
-nnoremap Y y$
-
 " Keep searches at center of screen when jumping
 nnoremap n nzzzv
 nnoremap N Nzzzv
