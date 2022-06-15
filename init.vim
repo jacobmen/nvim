@@ -6,8 +6,6 @@ set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
-" Turn off expandtab when in make file
-autocmd FileType make setlocal noexpandtab
 set autoindent
 filetype plugin indent on
 set nu
