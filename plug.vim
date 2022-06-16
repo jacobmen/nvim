@@ -51,9 +51,6 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 
-" Terminal
-Plug 'akinsho/toggleterm.nvim'
-
 " Vimwiki
 Plug 'vimwiki/vimwiki'
 
