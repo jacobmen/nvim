@@ -45,6 +45,9 @@ Plug 'nvim-telescope/telescope.nvim'
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" Trouble
+Plug 'folke/trouble.nvim'
+
 " Lualine
 Plug 'nvim-lualine/lualine.nvim'
 

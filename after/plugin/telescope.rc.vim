@@ -8,6 +8,7 @@ nnoremap  <silent> <C-f> <cmd>lua require('telescope.builtin').live_grep()<cr>
 
 lua << EOF
 local telescope = require('telescope')
+local trouble = require("trouble.providers.telescope")
 
 telescope.setup {
     defaults = {
@@ -15,10 +16,14 @@ telescope.setup {
             i = {
                 ["<C-j>"] = "move_selection_next",
                 ["<C-k>"] = "move_selection_previous",
-                ["<C-s>"] = "select_horizontal"
+                ["<C-s>"] = "select_horizontal",
+                ["<c-t>"] = trouble.open_with_trouble,
+            },
+            n = {
+                ["<c-t>"] = trouble.open_with_trouble,
             },
         },
-    }
+    },
 }
 EOF
 
