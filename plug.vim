@@ -55,6 +55,9 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 
+" Latex
+Plug 'lervag/vimtex'
+
 " Vimwiki
 Plug 'vimwiki/vimwiki'
 

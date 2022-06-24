@@ -6,6 +6,7 @@ lua << EOF
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.rust_analyzer.setup{}
 require'lspconfig'.hls.setup{}
+require'lspconfig'.texlab.setup{}
 
 local nvim_lsp = require('lspconfig')
 
@@ -44,7 +45,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
 )
 
 -- Add new servers to list
-local servers = { 'clangd', 'rust_analyzer', 'hls' }
+local servers = { 'clangd', 'rust_analyzer', 'hls', 'texlab' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
