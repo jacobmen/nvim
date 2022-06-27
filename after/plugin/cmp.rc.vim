@@ -14,6 +14,7 @@ end
 
 local cmp = require'cmp'
 local luasnip = require("luasnip")
+
 -- load friendly-snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -69,6 +70,13 @@ cmp.setup.cmdline('/', {
     { name = 'buffer' }
   }
 })
+
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
+cmp.event:on(
+  'confirm_done',
+   cmp_autopairs.on_confirm_done()
+)
 
 vim.cmd [[highlight! default link CmpItemKind CmpItemMenuDefault]]
 EOF
