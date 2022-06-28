@@ -19,3 +19,12 @@ autopairs.add_rules({
         :with_cr(cond.none())
     }
 )
+
+autopairs.add_rules({
+    Rule("\[", "\]", {"tex", "latex"})
+        -- don't move right when repeat character
+        :with_move(cond.none())
+        -- disable adding a newline when you press <cr>
+        :with_cr(cond.none())
+    }
+)
