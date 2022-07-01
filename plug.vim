@@ -10,7 +10,7 @@ Plug 'rmagatti/auto-session'
 Plug 'windwp/nvim-autopairs'
 
 " Comments
-Plug 'tpope/vim-commentary'
+Plug 'numToStr/Comment.nvim'
 
 " Doc generation
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
