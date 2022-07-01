@@ -49,24 +49,8 @@ let loaded_matchparen = 1
 nnoremap <Space> <NOP>
 let mapleader = " "
 
-fun! TrimWhitespace()
-  let l:save = winsaveview()
-  keeppatterns %s/\s\+$//e
-  call winrestview(l:save)
-endfun
-
-augroup highlight_yank
-  autocmd!
-  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 50)
-augroup END
-
-autocmd BufWritePre * :call TrimWhitespace()
-
 " Fix indentation in file
 map <F7> gg=G<C-o>
-
-" Turn off auto-inserting comments
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Replace highlighted
 vnoremap <leader>p "_dP
@@ -92,6 +76,8 @@ runtime ./colors.vim
 " Mappings
 runtime ./maps.vim
 
+runtime ./autocommands.vim
+
 " Plugin options
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
@@ -100,5 +86,3 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 let g:do_filetype_lua = 1
 let g:did_load_filetypes = 0
 
-" Autoformat buffer on write
-autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
