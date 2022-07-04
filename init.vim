@@ -24,6 +24,7 @@ set splitbelow
 set lazyredraw
 set mouse=a
 set inccommand=nosplit
+set laststatus=3
 syntax on
 
 " Give more space for displaying messages.
