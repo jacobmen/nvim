@@ -64,5 +64,8 @@ Plug 'lervag/vimtex'
 " Vimwiki
 Plug 'vimwiki/vimwiki'
 
+Plug 'anuvyklack/windows.nvim'
+Plug 'anuvyklack/middleclass'
+
 call plug#end()
 
