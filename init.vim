@@ -68,8 +68,7 @@ nnoremap N Nzzzv
 nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'gk'
 nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'gj'
 
-" Plugins
-runtime ./plug.vim
+lua require('plugins')
 
 " Colorscheme config
 runtime ./colors.vim
