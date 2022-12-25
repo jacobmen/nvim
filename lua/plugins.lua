@@ -51,4 +51,8 @@ return require('packer').startup(function(use)
         'anuvyklack/windows.nvim',
         requires='anuvyklack/middleclass'
     }
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim"
+    }
 end)
