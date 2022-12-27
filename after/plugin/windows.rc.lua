@@ -7,4 +7,4 @@ require('windows').setup({
     }
 })
 
-vim.keymap.set('n', '<C-w>o', '<Cmd>WindowsMaximaze<CR>')
+vim.keymap.set('n', '<C-w>o', '<Cmd>WindowsMaximize<CR>')

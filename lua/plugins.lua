@@ -44,7 +44,6 @@ return require("packer").startup(function(use)
 	-- Colorscheme
 	use({
 		"gruvbox-community/gruvbox",
-		requires = "sainnhe/gruvbox-material",
 	})
 	use("lervag/vimtex")
 	use("vimwiki/vimwiki")
