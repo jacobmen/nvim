@@ -15,7 +15,7 @@ augroup END
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Autoformat buffer on write
-autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+" autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
 
 lua << EOF
 local wr_group = vim.api.nvim_create_augroup('WinResize', { clear = true })
