@@ -25,5 +25,8 @@ telescope.setup {
         },
     },
 }
+
+-- Adds line numbers to preview buffers
+vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
 EOF
 
