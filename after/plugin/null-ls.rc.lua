@@ -16,6 +16,7 @@ null_ls.setup({
 		diagnostics.markdownlint,
 		diagnostics.shellcheck,
 		diagnostics.yamllint,
+		diagnostics.checkmake,
 	},
 	on_attach = require("lsp_utils").on_attach,
 })

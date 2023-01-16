@@ -5,8 +5,18 @@ return require("packer").startup(function(use)
 	use("numToStr/Comment.nvim")
 	-- Doc generation (<leader>d)
 	use({
-		"kkoomen/vim-doge",
-		run = ":call doge#install()",
+		"danymat/neogen",
+		config = function()
+			require("neogen").setup({ snippet_engine = "luasnip" })
+			vim.api.nvim_set_keymap(
+				"n",
+				"<Leader>d",
+				":lua require('neogen').generate()<CR>",
+				{ noremap = true, silent = true }
+			)
+		end,
+		requires = { "nvim-treesitter/nvim-treesitter", "L3MON4D3/LuaSnip" },
+		tag = "*",
 	})
 	-- Undo Tree (<leader>u)
 	use("mbbill/undotree")
