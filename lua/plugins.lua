@@ -1,10 +1,10 @@
-return require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
-	use("rmagatti/auto-session")
-	use("windwp/nvim-autopairs")
-	use("numToStr/Comment.nvim")
+return {
+	"folke/lazy.nvim",
+	"rmagatti/auto-session",
+	"windwp/nvim-autopairs",
+	"numToStr/Comment.nvim",
 	-- Doc generation (<leader>d)
-	use({
+	{
 		"danymat/neogen",
 		config = function()
 			require("neogen").setup({ snippet_engine = "luasnip" })
@@ -15,68 +15,83 @@ return require("packer").startup(function(use)
 				{ noremap = true, silent = true }
 			)
 		end,
-		requires = { "nvim-treesitter/nvim-treesitter", "L3MON4D3/LuaSnip" },
-		tag = "*",
-	})
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"L3MON4D3/LuaSnip",
+		},
+		version = "*",
+	},
 	-- Undo Tree (<leader>u)
-	use("mbbill/undotree")
+	"mbbill/undotree",
 	-- Center buffer (<leader>v)
-	use("jmckiern/vim-venter")
-	use("lewis6991/gitsigns.nvim")
-	use({ "neovim/nvim-lspconfig", "tami5/lspsaga.nvim" })
-	use({
+	"jmckiern/vim-venter",
+	"lewis6991/gitsigns.nvim",
+	"neovim/nvim-lspconfig",
+	"tami5/lspsaga.nvim",
+	{
 		"hrsh7th/cmp-nvim-lsp",
-		requires = {
+		dependencies = {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/nvim-cmp",
 		},
-	})
-	use({
+	},
+	{
 		"L3MON4D3/LuaSnip",
-		requires = {
+		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
 		},
-	})
-	use({
+	},
+	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
-		requires = { "nvim-lua/plenary.nvim" },
-	})
-	use({
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
-	use("folke/trouble.nvim")
-	use("nvim-lualine/lualine.nvim")
+		build = ":TSUpdate",
+	},
+	"folke/trouble.nvim",
+	"nvim-lualine/lualine.nvim",
 	-- Colorscheme
-	use({
+	{
 		"gruvbox-community/gruvbox",
-	})
-	use("lervag/vimtex")
-	use("vimwiki/vimwiki")
-	use({
-		"anuvyklack/windows.nvim",
-		requires = "anuvyklack/middleclass",
-	})
-	use({
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"jayp0521/mason-null-ls.nvim",
-	})
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		requires = "nvim-lua/plenary.nvim",
-	})
-	use({
-		"folke/todo-comments.nvim",
-		requires = "nvim-lua/plenary.nvim",
+		lazy = false,
+		priority = 1000,
 		config = function()
-			require("todo-comments").setup({
-				signs = false,
-			})
+			vim.cmd([[
+                let g:gruvbox_contrast_dark = 'hard'
+                if exists('+termguicolors')
+                    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+                    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+                endif
+                let g:gruvbox_invert_selection = '0'
+
+                colorscheme gruvbox
+                set background=dark
+            ]])
 		end,
-	})
-end)
+	},
+	"lervag/vimtex",
+	"vimwiki/vimwiki",
+	{
+		"anuvyklack/windows.nvim",
+		dependencies = "anuvyklack/middleclass",
+	},
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
+	"jayp0521/mason-null-ls.nvim",
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		dependencies = "nvim-lua/plenary.nvim",
+	},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = "nvim-lua/plenary.nvim",
+		opts = {
+			signs = false,
+		},
+	},
+}

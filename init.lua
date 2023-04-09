@@ -66,15 +66,27 @@ vim.cmd([[
     nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'gj'
 ]])
 
-require('plugins')
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
+end
+vim.opt.rtp:prepend(lazypath)
+require('lazy').setup('plugins')
 
 -- Mappings
 vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', { silent = true })
 vim.keymap.set('n', '<leader>v', ':VenterToggle<CR>', { silent = true })
 
 vim.cmd([[
-    runtime ./colors.vim
     runtime ./autocommands.vim
+    runtime ./colors.vim
     " Plugin options
     let g:vimwiki_list = [{'path': '~/vimwiki/',
                           \ 'syntax': 'markdown', 'ext': '.md'}]
