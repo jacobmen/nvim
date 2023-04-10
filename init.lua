@@ -13,7 +13,6 @@ vim.opt.wrap = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.backup = false
-vim.opt.undodir = '~/.vim/undodir'
 vim.opt.undofile = true
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
