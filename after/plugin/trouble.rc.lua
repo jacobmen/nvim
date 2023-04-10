@@ -1,4 +1,4 @@
-require("trouble").setup {
+require("trouble").setup({
     icons = false,
     fold_open = "v", -- icon used for open folds
     fold_closed = ">", -- icon used for closed folds
@@ -12,12 +12,12 @@ require("trouble").setup {
         error = "E",
         warning = "W",
         hint = "H",
-        information = "I"
+        information = "I",
     },
-    use_diagnostic_signs = false
-}
+    use_diagnostic_signs = false,
+})
 
-local opts = {silent = true, noremap = true}
+local opts = { silent = true, noremap = true }
 
 vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", opts)

@@ -5,24 +5,24 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
-	sources = {
-		code_actions.gitsigns,
+    sources = {
+        code_actions.gitsigns,
 
-		formatting.stylua,
-		formatting.black,
+        formatting.stylua,
+        formatting.black,
 
-		-- Docker linting
-		diagnostics.hadolint,
-		diagnostics.markdownlint,
-		diagnostics.shellcheck,
-		diagnostics.yamllint,
-		diagnostics.checkmake,
-	},
-	on_attach = require("lsp_utils").on_attach,
+        -- Docker linting
+        diagnostics.hadolint,
+        diagnostics.markdownlint,
+        diagnostics.shellcheck,
+        diagnostics.yamllint,
+        diagnostics.checkmake,
+    },
+    on_attach = require("lsp_utils").on_attach,
 })
 
 require("mason-null-ls").setup({
-	ensure_installed = nil,
-	automatic_installation = true,
-	automatic_setup = false,
+    ensure_installed = nil,
+    automatic_installation = true,
+    automatic_setup = false,
 })
