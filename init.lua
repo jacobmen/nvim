@@ -13,6 +13,7 @@ vim.opt.wrap = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.backup = false
+vim.opt.undodir = vim.fn.expand("~/.vim/undodir")
 vim.opt.undofile = true
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
@@ -20,8 +21,8 @@ vim.opt.scrolloff = 8
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.lazyredraw = true
-vim.opt.mouse = 'a'
-vim.opt.inccommand = 'nosplit'
+vim.opt.mouse = "a"
+vim.opt.inccommand = "nosplit"
 vim.opt.laststatus = 3
 
 -- Give more space for displaying messages.
@@ -34,29 +35,29 @@ vim.opt.updatetime = 50
 -- Don't pass messages to |ins-completion-menu|.
 vim.opt.shortmess:append({ c = true })
 
-vim.opt.colorcolumn = '100'
-vim.cmd.highlight({ 'ColorColumn', 'ctermbg=0', 'guibg=lightgrey' })
+vim.opt.colorcolumn = "100"
+vim.cmd.highlight({ "ColorColumn", "ctermbg=0", "guibg=lightgrey" })
 
 -- Easier split movement
-vim.keymap.set('', '<C-h>', '<C-w>h')
-vim.keymap.set('', '<C-j>', '<C-w>j')
-vim.keymap.set('', '<C-k>', '<C-w>k')
-vim.keymap.set('', '<C-l>', '<C-w>l')
+vim.keymap.set("", "<C-h>", "<C-w>h")
+vim.keymap.set("", "<C-j>", "<C-w>j")
+vim.keymap.set("", "<C-k>", "<C-w>k")
+vim.keymap.set("", "<C-l>", "<C-w>l")
 
 vim.g.loaded_matchparen = 1
-vim.keymap.set('n', '<Space', '<NOP>')
-vim.g.mapleader = ' '
+vim.keymap.set("n", "<Space", "<NOP>")
+vim.g.mapleader = " "
 
 -- Replace highlighted
-vim.keymap.set('v', '<leader>p', '"_dP')
-vim.keymap.set('v', 'X', '"_d')
+vim.keymap.set("v", "<leader>p", '"_dP')
+vim.keymap.set("v", "X", '"_d')
 
 -- Better escape key
-vim.keymap.set('i', '<C-c>', '<esc>')
+vim.keymap.set("i", "<C-c>", "<esc>")
 
 -- Keep searches at center of screen when jumping
-vim.keymap.set('n', 'n', 'nzzzv')
-vim.keymap.set('n', 'N', 'Nzzzv')
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 
 -- Include relative jumps in jumplist for <C-o>
 -- TODO: convert to lua commands
@@ -67,21 +68,21 @@ vim.cmd([[
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
-require('lazy').setup('plugins')
+require("lazy").setup("plugins")
 
 -- Mappings
-vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', { silent = true })
-vim.keymap.set('n', '<leader>v', ':VenterToggle<CR>', { silent = true })
+vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { silent = true })
+vim.keymap.set("n", "<leader>v", ":VenterToggle<CR>", { silent = true })
 
 vim.cmd([[
     runtime ./autocommands.vim
